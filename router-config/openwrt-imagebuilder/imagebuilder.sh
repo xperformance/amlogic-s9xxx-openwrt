@@ -18,7 +18,7 @@
 #                Use Image Builder to add packages, lib, theme, app and i18n, etc.
 #
 # Command: ./router-config/openwrt-imagebuilder/imagebuilder.sh <branch>
-#          ./router-config/openwrt-imagebuilder/imagebuilder.sh 21.02.3
+#          ./router-config/openwrt-imagebuilder/imagebuilder.sh 18.06.9
 #
 #======================================== Functions list ========================================
 #
@@ -56,7 +56,7 @@ error_msg() {
 download_imagebuilder() {
     echo -e "${STEPS} Start downloading OpenWrt files..."
     # Downloading imagebuilder files
-    # Download example: https://downloads.openwrt.org/releases/21.02.3/targets/armvirt/64/openwrt-imagebuilder-21.02.3-armvirt-64.Linux-x86_64.tar.xz
+    # Download example: https://downloads.openwrt.org/releases/18.06.9/targets/armvirt/64/openwrt-imagebuilder-18.06.9-armvirt-64.Linux-x86_64.tar.xz
     download_file="https://downloads.openwrt.org/releases/${rebuild_branch}/targets/armvirt/64/openwrt-imagebuilder-${rebuild_branch}-armvirt-64.Linux-x86_64.tar.xz"
     wget -q ${download_file}
     [[ "${?}" -eq "0" ]] || error_msg "Wget download failed: [ ${download_file} ]"
@@ -189,7 +189,7 @@ rebuild_firmware() {
 # Show welcome message
 echo -e "${STEPS} Welcome to Rebuild OpenWrt Using the Image Builder."
 [[ -x "${0}" ]] || error_msg "Please give the script permission to run: [ chmod +x ${0} ]"
-[[ -z "${1}" ]] && error_msg "Please specify the OpenWrt Branch, such as [ ${0} 21.02.3 ]"
+[[ -z "${1}" ]] && error_msg "Please specify the OpenWrt Branch, such as [ ${0} 18.06.9 ]"
 rebuild_branch="${1}"
 echo -e "${INFO} Rebuild path: [ ${PWD} ]"
 echo -e "${INFO} Rebuild branch: [ ${rebuild_branch} ]"
